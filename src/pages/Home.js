@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Character from "../components/Character";
 import Loader from "../components/Loader";
 
 const Home = () => {
@@ -26,7 +27,7 @@ const Home = () => {
           {data.results.map((character, index) => {
             return (
               <Link key={character._id} to={`/character/${character._id}`}>
-                {character.name}
+                <Character {...character} />
               </Link>
             );
           })}
