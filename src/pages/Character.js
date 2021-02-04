@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Comic from "./../components/Comic";
 import Loader from "./../components/Loader";
 
 const Character = () => {
@@ -11,7 +12,7 @@ const Character = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://marvel-app-back.herokuapp.com/character/${id}`
+        `https://marvel-app-back.herokuapp.com/comics/${id}`
       );
       setData(response.data);
       setIsLoading(false);
@@ -23,7 +24,19 @@ const Character = () => {
   return (
     <>
       {isLoading && <Loader />}
-      {!isLoading && <div>Character</div>}
+      {!isLoading && (
+        <div>
+          {data.thumbnail.path && (
+            <img
+              src={data.thumbnail.path + "." + data.thumbnail.extension}
+              alt="character"
+            />
+          )}
+          {data.comics.map((comic, index) => {
+            return <Comic key={comic._id} {...comic} />;
+          })}
+        </div>
+      )}
     </>
   );
 };
