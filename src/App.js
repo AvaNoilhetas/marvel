@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Bookmarks from "./pages/Bookmarks";
@@ -6,6 +7,9 @@ import Comics from "./pages/Comics";
 import Home from "./pages/Home";
 
 function App() {
+  const [bookmarkComic, setBookmarkComic] = useState([]);
+  const [bookmarkCharacters, setBookmarkCharacters] = useState([]);
+
   return (
     <Router>
       <Header />
@@ -14,13 +18,19 @@ function App() {
           <Character />
         </Route>
         <Route path="/comics">
-          <Comics />
+          <Comics
+            setBookmarkComic={setBookmarkComic}
+            bookmarkComic={bookmarkComic}
+          />
         </Route>
         <Route path="/bookmarks">
           <Bookmarks />
         </Route>
         <Route path="/">
-          <Home />
+          <Home
+            setBookmarkCharacters={setBookmarkCharacters}
+            bookmarkCharacters={bookmarkCharacters}
+          />
         </Route>
         <Route path="*"></Route>
       </Switch>

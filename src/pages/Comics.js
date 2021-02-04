@@ -6,7 +6,7 @@ import Comic from "../components/Comic";
 import Loader from "../components/Loader";
 import Search from "../components/Search";
 
-const Comics = () => {
+const Comics = props => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [searchItem, setSearchItem] = useState();
@@ -37,7 +37,14 @@ const Comics = () => {
         <div>
           <Search setSearchItem={setSearchItem} />
           {data.results.map((comic, index) => {
-            return <Comic key={comic._id} {...comic} />;
+            return (
+              <Comic
+                key={comic._id}
+                setBookmarkComic={props.setBookmarkComic}
+                bookmarkComic={props.bookmarkComic}
+                {...comic}
+              />
+            );
           })}
         </div>
       )}
