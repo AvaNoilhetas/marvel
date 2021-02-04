@@ -1,28 +1,41 @@
 import axios from "axios";
+import qs from "qs";
 import { useEffect, useState } from "react";
+import { useDebounce } from "use-debounce";
 import Comic from "../components/Comic";
 import Loader from "../components/Loader";
+import Search from "../components/Search";
 
 const Comics = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [searchItem, setSearchItem] = useState();
+  const [useDebounceSearchItem] = useDebounce(searchItem, 2000);
 
   useEffect(() => {
     const fetchData = async () => {
-      let url = "https://marvel-app-back.herokuapp.com/comics";
+      let params = {
+        title: useDebounceSearchItem
+      };
+
+      const queryParams = qs.stringify(params);
+
+      let url = `https://marvel-app-back.herokuapp.com/comics?${queryParams}`;
+
       const response = await axios.get(url);
       setData(response.data);
       setIsLoading(false);
     };
 
     fetchData();
-  }, []);
+  }, [useDebounceSearchItem]);
 
   return (
     <>
       {isLoading && <Loader />}
       {!isLoading && (
         <div>
+          <Search setSearchItem={setSearchItem} />
           {data.results.map((comic, index) => {
             return <Comic key={comic._id} {...comic} />;
           })}
