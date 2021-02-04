@@ -1,16 +1,16 @@
 import React from "react";
 
-const Character = props => {
+const Comic = props => {
   return (
     <div>
       <img
         src={props.thumbnail.path + "." + props.thumbnail.extension}
-        alt={props.name}
+        alt={props.title}
       />
-      <p>{props.name}</p>
+      <p>{props.title}</p>
       <p>{props.description}</p>
     </div>
   );
 };
 
-export default Character;
+export default Comic;

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Comic from "../components/Comic";
 import Loader from "../components/Loader";
 
 const Comics = () => {
@@ -26,7 +27,7 @@ const Comics = () => {
           {data.results.map((comic, index) => {
             return (
               <Link key={comic._id} to={`/comic/${comic._id}`}>
-                {comic.title}
+                <Comic {...comic} />
               </Link>
             );
           })}
