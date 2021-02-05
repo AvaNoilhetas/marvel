@@ -3,12 +3,17 @@ import React from "react";
 const Comic = props => {
   const handleSaveItem = item => {
     const bookmark = [...item.bookmarkComic];
-
-    if (bookmark.indexOf(item.title) === -1) {
-      bookmark.push(item.title);
+    let findItem = bookmark.find(o => o.id === item._id);
+    if (findItem) {
+      bookmark.splice(bookmark.indexOf(findItem), 1);
       item.setBookmarkComic(bookmark);
     } else {
-      bookmark.splice(bookmark.indexOf(item.title), 1);
+      bookmark.push({
+        id: item._id,
+        title: item.title,
+        thumbnail: item.thumbnail.path,
+        extension: item.thumbnail.extension
+      });
       item.setBookmarkComic(bookmark);
     }
   };
@@ -16,7 +21,7 @@ const Comic = props => {
   let isFavourite = false;
 
   for (let i = 0; i < props.bookmarkComic.length; i++) {
-    if (props.title === props.bookmarkComic[i]) {
+    if (props._id === props.bookmarkComic[i].id) {
       isFavourite = true;
     }
   }
