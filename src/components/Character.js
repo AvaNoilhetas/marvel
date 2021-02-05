@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 const Character = props => {
   const handleSaveItem = item => {
-    console.log(item);
-
     const bookmark = [...item.bookmarkCharacter];
     let findItem = bookmark.find(o => o._id === item._id);
     if (findItem) {
