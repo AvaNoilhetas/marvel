@@ -3,17 +3,23 @@ import { Link } from "react-router-dom";
 
 const Character = props => {
   const handleSaveItem = item => {
+    console.log(item);
+
     const bookmark = [...item.bookmarkCharacter];
-    let findItem = bookmark.find(o => o.id === item._id);
+    let findItem = bookmark.find(o => o._id === item._id);
     if (findItem) {
       bookmark.splice(bookmark.indexOf(findItem), 1);
       item.setBookmarkCharacter(bookmark);
     } else {
       bookmark.push({
-        id: item._id,
+        _id: item._id,
         name: item.name,
-        thumbnail: item.thumbnail.path,
-        extension: item.thumbnail.extension
+        thumbnail: {
+          path: item.thumbnail.path,
+          extension: item.thumbnail.extension
+        },
+        extension: item.thumbnail.extension,
+        description: item.description
       });
       item.setBookmarkCharacter(bookmark);
     }
@@ -22,7 +28,7 @@ const Character = props => {
   let isFavourite = false;
 
   for (let i = 0; i < props.bookmarkCharacter.length; i++) {
-    if (props._id === props.bookmarkCharacter[i].id) {
+    if (props._id === props.bookmarkCharacter[i]._id) {
       isFavourite = true;
     }
   }

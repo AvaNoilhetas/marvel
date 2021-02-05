@@ -22,7 +22,10 @@ function App() {
       <Header />
       <Switch>
         <Route path="/character/:id">
-          <Character />
+          <Character
+            setBookmarkComic={setBookmarkComic}
+            bookmarkComic={bookmarkComic}
+          />
         </Route>
         <Route path="/comics">
           <Comics
@@ -32,6 +35,8 @@ function App() {
         </Route>
         <Route path="/bookmarks">
           <Bookmarks
+            setBookmarkComic={setBookmarkComic}
+            setBookmarkCharacter={setBookmarkCharacter}
             bookmarkComic={bookmarkComic}
             bookmarkCharacter={bookmarkCharacter}
           />
