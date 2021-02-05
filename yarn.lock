@@ -11217,6 +11217,13 @@ use-debounce@^5.2.0:
   resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-5.2.0.tgz#3cb63f5c46f40092c570356e441dbc016ffb2f8b"
   integrity sha512-lW4tbPsTnvPKYqOYXp5xZ7SP7No/ARLqqQqoyRKuSzP0HxR9arhSAhznXUZFoNPWDRij8fog+N6sYbjb8c3kzw==
 
+use-local-storage@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/use-local-storage/-/use-local-storage-2.0.1.tgz#7b89a38b2bfcba2403eafd94027f1bda50dcff7d"
+  integrity sha512-sUiHjOEg2zCdMsqqRMMxxbHcpSFHJh6pqOcXFWPWWUuxeeiiZ8swkbJl+rjlg0/0h5DK5h09IqDec5fwLpb4xg==
+  dependencies:
+    react "^17.0.1"
+
 use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"

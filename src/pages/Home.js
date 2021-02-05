@@ -39,8 +39,8 @@ const Home = props => {
             return (
               <Character
                 key={character._id}
-                setBookmarkCharacters={props.setBookmarkCharacters}
-                bookmarkCharacters={props.bookmarkCharacters}
+                setBookmarkCharacter={props.setBookmarkCharacter}
+                bookmarkCharacter={props.bookmarkCharacter}
                 {...character}
               />
             );

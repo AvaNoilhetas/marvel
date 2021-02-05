@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import useLocalStorage from "use-local-storage";
 import Header from "./components/Header";
 import Bookmarks from "./pages/Bookmarks";
 import Character from "./pages/Character";
@@ -7,8 +8,14 @@ import Comics from "./pages/Comics";
 import Home from "./pages/Home";
 
 function App() {
-  const [bookmarkComic, setBookmarkComic] = useState([]);
-  const [bookmarkCharacters, setBookmarkCharacters] = useState([]);
+  const [bookmarkComic, setBookmarkComic] = useLocalStorage(
+    "bookmarkComic",
+    ""
+  );
+  const [bookmarkCharacter, setBookmarkCharacter] = useLocalStorage(
+    "bookmarkCharacter",
+    ""
+  );
 
   return (
     <Router>
@@ -24,12 +31,15 @@ function App() {
           />
         </Route>
         <Route path="/bookmarks">
-          <Bookmarks />
+          <Bookmarks
+            bookmarkComic={bookmarkComic}
+            bookmarkCharacter={bookmarkCharacter}
+          />
         </Route>
         <Route path="/">
           <Home
-            setBookmarkCharacters={setBookmarkCharacters}
-            bookmarkCharacters={bookmarkCharacters}
+            setBookmarkCharacter={setBookmarkCharacter}
+            bookmarkCharacter={bookmarkCharacter}
           />
         </Route>
         <Route path="*"></Route>

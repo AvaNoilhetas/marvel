@@ -3,21 +3,33 @@ import { Link } from "react-router-dom";
 
 const Character = props => {
   const handleSaveItem = item => {
-    const bookmark = [...item.bookmarkCharacters];
+    const bookmark = [...item.bookmarkCharacter];
 
-    if (bookmark.indexOf(item._id) === -1) {
-      bookmark.push(item._id);
-      item.setBookmarkCharacters(bookmark);
+    if (bookmark.indexOf(item.name) === -1) {
+      bookmark.push(item.name);
+      item.setBookmarkCharacter(bookmark);
     } else {
-      bookmark.splice(bookmark.indexOf(item._id), 1);
-      item.setBookmarkCharacters(bookmark);
+      bookmark.splice(bookmark.indexOf(item.name), 1);
+      item.setBookmarkCharacter(bookmark);
     }
   };
 
+  let isFavourite = false;
+
+  for (let i = 0; i < props.bookmarkCharacter.length; i++) {
+    if (props.name === props.bookmarkCharacter[i]) {
+      isFavourite = true;
+    }
+  }
+
   return (
     <div>
-      <button type="button" onClick={() => handleSaveItem(props)}>
-        fav
+      <button
+        type="button"
+        onClick={() => handleSaveItem(props)}
+        className={isFavourite ? "bg-red" : "bg-primary"}
+      >
+        fav : {props._id}
       </button>
       <Link to={`/character/${props._id}`}>
         {props.thumbnail.path && (
