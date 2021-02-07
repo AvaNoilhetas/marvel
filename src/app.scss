@@ -11,5 +11,13 @@
   font-weight: normal;
   font-style: normal;
 }
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 @tailwind utilities;
+
+.text-shadow {
+  text-shadow: -1px -1px 0 #434646, 1px 1px 0 #434646, 2px 2px 0 #434646;
+}
+
+button {
+  @apply focus:ring-0 focus:outline-none;
+}
