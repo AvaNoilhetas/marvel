@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
+import "./app.scss";
 import Header from "./components/Header";
 import Bookmarks from "./pages/Bookmarks";
 import Character from "./pages/Character";

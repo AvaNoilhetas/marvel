@@ -1,10 +1,7 @@
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
-    maxHeight: {
-      offer: "50rem"
-    },
     container: {
       center: true,
       screens: {
@@ -22,19 +19,17 @@ module.exports = {
       }
     },
     colors: {
-      primary: "#09b1ba",
-      lightPrimary: "#75d0d6",
-      secondary: "#999",
-      red: "#ef4444",
-      white: "#ffffff",
-      gray: "#ebedee",
-      lightGray: "#f5f6f7",
-      default: "#666666",
-      dark: "#111111",
-      transparent: "transparent"
+      dark: "#434646",
+      red: "#e94822"
     },
     fontFamily: {
-      body: ['"Maison Neue"', "Helvetica Neue", "Helvetica-Neue", "Arial"]
+      primary: [
+        '"action_manregular"',
+        "Helvetica Neue",
+        "Helvetica-Neue",
+        "Arial"
+      ],
+      secondary: ['"Bangers"']
     }
   },
   variants: {

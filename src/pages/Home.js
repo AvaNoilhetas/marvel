@@ -33,19 +33,21 @@ const Home = props => {
     <>
       {isLoading && <Loader />}
       {!isLoading && (
-        <div>
+        <>
           <Search setSearchItem={setSearchItem} />
-          {data.results.map((character, index) => {
-            return (
-              <Character
-                key={character._id}
-                setBookmarkCharacter={props.setBookmarkCharacter}
-                bookmarkCharacter={props.bookmarkCharacter}
-                {...character}
-              />
-            );
-          })}
-        </div>
+          <section className="container grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-x-4">
+            {data.results.map((character, index) => {
+              return (
+                <Character
+                  key={character._id}
+                  setBookmarkCharacter={props.setBookmarkCharacter}
+                  bookmarkCharacter={props.bookmarkCharacter}
+                  {...character}
+                />
+              );
+            })}
+          </section>
+        </>
       )}
     </>
   );

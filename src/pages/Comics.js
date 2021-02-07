@@ -34,19 +34,21 @@ const Comics = props => {
     <>
       {isLoading && <Loader />}
       {!isLoading && (
-        <div>
+        <>
           <Search setSearchItem={setSearchItem} />
-          {data.results.map((comic, index) => {
-            return (
-              <Comic
-                key={comic._id}
-                setBookmarkComic={props.setBookmarkComic}
-                bookmarkComic={props.bookmarkComic}
-                {...comic}
-              />
-            );
-          })}
-        </div>
+          <section className="container grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-x-4">
+            {data.results.map((comic, index) => {
+              return (
+                <Comic
+                  key={comic._id}
+                  setBookmarkComic={props.setBookmarkComic}
+                  bookmarkComic={props.bookmarkComic}
+                  {...comic}
+                />
+              );
+            })}
+          </section>
+        </>
       )}
     </>
   );
