@@ -3,6 +3,7 @@ import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
+import Description from "../components/Description";
 
 const Character = props => {
   const handleSaveItem = (e, item) => {
@@ -36,7 +37,7 @@ const Character = props => {
   }
 
   return (
-    <div className="col-span-1 bg-white border-2 border-dark inline-block h-full mb-4">
+    <div className="col-span-1 bg-white border-2 border-dark inline-block h-full">
       <Link to={`/character/${props._id}`}>
         {props.thumbnail.path && (
           <img
@@ -70,14 +71,7 @@ const Character = props => {
               )}
             </button>
           </div>
-          {props.description && (
-            <p className="text-dark font-primary leading-4 mt-2">
-              {props.description.length > 75
-                ? `${props.description.substring(0, 75)}...`
-                : props.description}
-              <button></button>
-            </p>
-          )}
+          {props.description && <Description description={props.description} />}
         </div>
       </Link>
     </div>

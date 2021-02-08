@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Carousel from "../components/Carousel";
 import Comic from "./../components/Comic";
 import Loader from "./../components/Loader";
 
@@ -55,7 +56,7 @@ const Character = props => {
                 {data.name} apparaît dans :
               </h1>
 
-              <div className="container overflow-auto grid grid-flow-col-dense justify-start gap-x-4 px-0">
+              <Carousel>
                 {data.comics.map((comic, index) => {
                   return (
                     <div key={comic._id} className="w-64">
@@ -67,7 +68,7 @@ const Character = props => {
                     </div>
                   );
                 })}
-              </div>
+              </Carousel>
             </section>
           )}
         </div>

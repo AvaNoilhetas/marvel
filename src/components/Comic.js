@@ -2,6 +2,7 @@ import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import Description from "../components/Description";
 
 const Comic = props => {
   const handleSaveItem = item => {
@@ -33,7 +34,7 @@ const Comic = props => {
   }
 
   return (
-    <div className="col-span-1 bg-white border-2 border-dark block h-full mb-4">
+    <div className="col-span-1 bg-white border-2 border-dark block h-full">
       {props.thumbnail.path && (
         <img
           className="object-cover w-full h-60"
@@ -60,13 +61,7 @@ const Comic = props => {
             )}
           </button>
         </div>
-        {props.description && (
-          <p className="text-dark font-primary leading-4 mt-2">
-            {props.description.length > 75
-              ? `${props.description.substring(0, 75)}...`
-              : props.description}
-          </p>
-        )}
+        {props.description && <Description description={props.description} />}
       </div>
     </div>
   );

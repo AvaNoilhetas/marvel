@@ -1,5 +1,7 @@
+import Carousel from "../components/Carousel";
 import Character from "../components/Character";
 import Comic from "../components/Comic";
+
 const Bookmark = props => {
   console.log(props.bookmarkComic);
   console.log(props.bookmarkCharacter);
@@ -10,7 +12,7 @@ const Bookmark = props => {
           Personnages favoris
         </h1>
         {props.bookmarkCharacter.length > 0 ? (
-          <div className="container overflow-auto grid grid-flow-col-dense justify-start gap-x-4 px-0">
+          <Carousel>
             {props.bookmarkCharacter.map((character, index) => {
               return (
                 <div key={character._id} className="w-64">
@@ -22,7 +24,7 @@ const Bookmark = props => {
                 </div>
               );
             })}
-          </div>
+          </Carousel>
         ) : (
           <div className="border border-dark bg-white p-10">
             <p className="text-center font-primary text-dark text-md">
@@ -36,7 +38,7 @@ const Bookmark = props => {
           Comics favoris
         </h1>
         {props.bookmarkComic.length > 0 ? (
-          <div className="container overflow-auto grid grid-flow-col-dense justify-start gap-x-4 px-0">
+          <Carousel>
             {props.bookmarkComic.map((comic, index) => {
               return (
                 <div key={comic._id} className="w-64">
@@ -48,7 +50,7 @@ const Bookmark = props => {
                 </div>
               );
             })}
-          </div>
+          </Carousel>
         ) : (
           <div className="border border-dark bg-white p-10">
             <p className="text-center font-primary text-dark text-md">
