@@ -35,7 +35,7 @@ const Character = props => {
   }
 
   return (
-    <div className="col-span-1 mb-4 border-2 border-dark">
+    <div className="col-span-1 mb-4 border-2 border-dark inline-block h-full">
       <Link to={`/character/${props._id}`}>
         {props.thumbnail.path && (
           <img

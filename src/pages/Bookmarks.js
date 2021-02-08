@@ -5,34 +5,40 @@ const Bookmark = props => {
   console.log(props.bookmarkCharacter);
   return (
     <>
-      <section className="container">
-        <h1>CHARACTERS</h1>
-        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-4">
+      <section className="container mb-10">
+        <h1 class="text-shadow text-yellow font-secondary text-white text-4xl mb-4">
+          Personnages favoris
+        </h1>
+        <div className="container overflow-auto grid grid-flow-col-dense justify-start gap-x-4 px-0">
           {props.bookmarkCharacter &&
             props.bookmarkCharacter.map((character, index) => {
               return (
-                <Character
-                  key={character._id}
-                  setBookmarkCharacter={props.setBookmarkCharacter}
-                  bookmarkCharacter={props.bookmarkCharacter}
-                  {...character}
-                />
+                <div key={character._id} className="w-64">
+                  <Character
+                    setBookmarkCharacter={props.setBookmarkCharacter}
+                    bookmarkCharacter={props.bookmarkCharacter}
+                    {...character}
+                  />
+                </div>
               );
             })}
         </div>
       </section>
-      <section className="container">
-        <h1>COMICS</h1>
-        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-4">
+      <section className="container mb-10">
+        <h1 class="text-shadow text-yellow font-secondary text-white text-4xl mb-4">
+          Comics favoris
+        </h1>
+        <div className="container overflow-auto grid grid-flow-col-dense justify-start gap-x-4 px-0">
           {props.bookmarkComic &&
             props.bookmarkComic.map((comic, index) => {
               return (
-                <Comic
-                  key={comic._id}
-                  setBookmarkComic={props.setBookmarkComic}
-                  bookmarkComic={props.bookmarkComic}
-                  {...comic}
-                />
+                <div key={comic._id} className="w-64">
+                  <Comic
+                    setBookmarkComic={props.setBookmarkComic}
+                    bookmarkComic={props.bookmarkComic}
+                    {...comic}
+                  />
+                </div>
               );
             })}
         </div>

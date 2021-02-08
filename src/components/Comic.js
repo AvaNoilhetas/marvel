@@ -33,7 +33,7 @@ const Comic = props => {
   }
 
   return (
-    <div className="col-span-1 mb-4 border-2 border-dark">
+    <div className="col-span-1 mb-4 border-2 border-dark block h-full">
       {props.thumbnail.path && (
         <img
           className="object-cover w-full h-60"

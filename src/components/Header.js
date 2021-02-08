@@ -11,11 +11,11 @@ const Header = () => {
       style={{
         backgroundImage: `url(${marvel})`
       }}
-      className="sm:bg-top bg-center sm:h-96 h-80 py-5"
+      className="sm:bg-top bg-center sm:h-96 h-80 py-5 mb-10"
     >
       <div className="bg-primaryRed w-full border-t-2 border-b-2 border-dark">
         <div className="container sm:flex flex-none justify-between items-center xs:py-2 py-1">
-          <img src={logo} alt="Marvel" className="xs:mb-0 mb-2 sm:h-10 h-8" />
+          <img src={logo} alt="Marvel" className="sm:h-10 h-8" />
           <div className="flex xs:justify-end justify-between">
             <Link
               className={
