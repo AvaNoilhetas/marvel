@@ -26,7 +26,7 @@ const Character = props => {
       {isLoading && <Loader />}
       {!isLoading && (
         <div>
-          <section className="container mb-10">
+          <section className="container my-10">
             <div className="sm:flex sm:space-x-4 max-w-5xl">
               <div className="col-span-1">
                 {data.thumbnail.path && (

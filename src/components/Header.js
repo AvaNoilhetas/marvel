@@ -11,7 +11,7 @@ const Header = () => {
       style={{
         backgroundImage: `url(${marvel})`
       }}
-      className="sm:bg-top bg-center sm:h-96 h-80 py-5 mb-10"
+      className="sm:bg-top bg-center sm:h-96 h-80 py-5"
     >
       <div className="bg-primaryRed w-full border-t-2 border-b-2 border-dark">
         <div className="container sm:flex flex-none justify-between items-center xs:py-2 py-1">

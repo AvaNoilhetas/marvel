@@ -36,7 +36,7 @@ const Comics = props => {
       {!isLoading && (
         <>
           <Search setSearchItem={setSearchItem} />
-          <section className="container grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+          <section className="container grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 my-10">
             {data.results.map((comic, index) => {
               return (
                 <Comic

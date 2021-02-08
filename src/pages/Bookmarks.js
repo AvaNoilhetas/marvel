@@ -5,7 +5,7 @@ const Bookmark = props => {
   console.log(props.bookmarkCharacter);
   return (
     <>
-      <section className="container mb-10">
+      <section className="container my-10">
         <h1 className="text-shadow text-yellow font-secondary text-white text-4xl mb-4">
           Personnages favoris
         </h1>
