@@ -4,19 +4,24 @@ import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 import Comic from "../components/Comic";
 import Loader from "../components/Loader";
+import Pagination from "../components/Pagination";
 import Search from "../components/Search";
 
 const Comics = props => {
   const [data, setData] = useState({});
+  const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [searchItem, setSearchItem] = useState();
   const [useDebounceSearchItem] = useDebounce(searchItem, 800);
   const [autocomplete, setAutocomplete] = useState(false);
+  const limit = 100;
 
   useEffect(() => {
     const fetchData = async () => {
       let params = {
-        title: useDebounceSearchItem
+        title: useDebounceSearchItem,
+        skip: (page - 1) * limit,
+        limit: limit
       };
 
       const queryParams = qs.stringify(params);
@@ -29,7 +34,7 @@ const Comics = props => {
     };
 
     fetchData();
-  }, [useDebounceSearchItem]);
+  }, [useDebounceSearchItem, page]);
 
   const handleChooseItem = item => {
     setSearchItem(
@@ -61,17 +66,25 @@ const Comics = props => {
               );
             })}
           </Search>
-          <section className="container grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 my-10 px-4">
-            {data.results.map((comic, index) => {
-              return (
-                <Comic
-                  key={comic._id}
-                  setBookmarkComic={props.setBookmarkComic}
-                  bookmarkComic={props.bookmarkComic}
-                  {...comic}
-                />
-              );
-            })}
+          <section className="container my-10 px-4">
+            <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+              {data.results.map((comic, index) => {
+                return (
+                  <Comic
+                    key={comic._id}
+                    setBookmarkComic={props.setBookmarkComic}
+                    bookmarkComic={props.bookmarkComic}
+                    {...comic}
+                  />
+                );
+              })}
+            </div>
+            <Pagination
+              total={data.count}
+              limit={limit}
+              page={page}
+              setPage={setPage}
+            />
           </section>
         </>
       )}
