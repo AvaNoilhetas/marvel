@@ -33,7 +33,7 @@ const Comic = props => {
   }
 
   return (
-    <div className="col-span-1 mb-4 border-2 border-dark block h-full">
+    <div className="col-span-1 bg-white border-2 border-dark block h-full mb-4">
       {props.thumbnail.path && (
         <img
           className="object-cover w-full h-60"
@@ -44,9 +44,15 @@ const Comic = props => {
       <div className="w-full p-2">
         <div className="flex justify-between items-start">
           {props.title && (
-            <p className="font-secondary text-dark text-lg">{props.title}</p>
+            <p className="font-secondary text-dark text-lg leading-6">
+              {props.title}
+            </p>
           )}
-          <button type="button" onClick={() => handleSaveItem(props)}>
+          <button
+            type="button"
+            className="ml-2"
+            onClick={() => handleSaveItem(props)}
+          >
             {isFavourite ? (
               <FontAwesomeIcon className="text-3xl text-red" icon={fasHeart} />
             ) : (

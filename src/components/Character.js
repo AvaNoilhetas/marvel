@@ -35,7 +35,7 @@ const Character = props => {
   }
 
   return (
-    <div className="col-span-1 mb-4 border-2 border-dark inline-block h-full">
+    <div className="col-span-1 bg-white border-2 border-dark inline-block h-full mb-4">
       <Link to={`/character/${props._id}`}>
         {props.thumbnail.path && (
           <img
@@ -48,9 +48,15 @@ const Character = props => {
       <div className="w-full p-2">
         <div className="flex justify-between items-start">
           {props.name && (
-            <p className="font-secondary text-dark text-lg">{props.name}</p>
+            <p className="font-secondary text-dark text-lg leading-6">
+              {props.name}
+            </p>
           )}
-          <button type="button" onClick={() => handleSaveItem(props)}>
+          <button
+            type="button"
+            className="ml-2"
+            onClick={() => handleSaveItem(props)}
+          >
             {isFavourite ? (
               <FontAwesomeIcon className="text-3xl text-red" icon={fasHeart} />
             ) : (
