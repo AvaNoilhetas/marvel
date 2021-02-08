@@ -31,7 +31,7 @@ const Character = props => {
               <div className="col-span-1">
                 {data.thumbnail.path && (
                   <img
-                    className="border-2 border-dark max-h-80 w-full mx-auto"
+                    className="border-2 border-dark max-h-80 w-auto mx-auto"
                     src={data.thumbnail.path + "." + data.thumbnail.extension}
                     alt={data.name}
                   />
