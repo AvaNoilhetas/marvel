@@ -8,7 +8,7 @@ module.exports = {
         sm: "100%",
         md: "100%",
         lg: "1280px",
-        xl: "1280px"
+        xl: "1400px"
       },
       padding: {
         sm: "2rem",
@@ -23,7 +23,8 @@ module.exports = {
       primaryRed: "#EC1D25",
       red: "#E94822",
       white: "#FFFFFF",
-      yellow: "#ffce55"
+      yellow: "#ffce55",
+      lightBg: "#e8e8e8"
     },
     fontFamily: {
       primary: [

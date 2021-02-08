@@ -10,7 +10,8 @@ const Comics = props => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [searchItem, setSearchItem] = useState();
-  const [useDebounceSearchItem] = useDebounce(searchItem, 2000);
+  const [useDebounceSearchItem] = useDebounce(searchItem, 800);
+  const [autocomplete, setAutocomplete] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,13 +31,37 @@ const Comics = props => {
     fetchData();
   }, [useDebounceSearchItem]);
 
+  const handleChooseItem = item => {
+    setSearchItem(
+      encodeURIComponent(item)
+        .replace(/\(/g, "\\(")
+        .replace(/\)/g, "\\)")
+    );
+    setAutocomplete(false);
+  };
+
   return (
     <>
       {isLoading && <Loader />}
       {!isLoading && (
         <>
-          <Search setSearchItem={setSearchItem} />
-          <section className="container grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 my-10">
+          <Search
+            setSearchItem={setSearchItem}
+            autocomplete={autocomplete}
+            setAutocomplete={setAutocomplete}
+          >
+            {data.results.map((comic, index) => {
+              return (
+                <div key={comic._id}>
+                  <span onClick={() => handleChooseItem(comic.title)}>
+                    {comic.title}
+                  </span>
+                  <hr />
+                </div>
+              );
+            })}
+          </Search>
+          <section className="container grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 my-10 px-4">
             {data.results.map((comic, index) => {
               return (
                 <Comic

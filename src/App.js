@@ -19,38 +19,40 @@ function App() {
   );
 
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route path="/character/:id">
-          <Character
-            setBookmarkComic={setBookmarkComic}
-            bookmarkComic={bookmarkComic}
-          />
-        </Route>
-        <Route path="/comics">
-          <Comics
-            setBookmarkComic={setBookmarkComic}
-            bookmarkComic={bookmarkComic}
-          />
-        </Route>
-        <Route path="/bookmarks">
-          <Bookmarks
-            setBookmarkComic={setBookmarkComic}
-            setBookmarkCharacter={setBookmarkCharacter}
-            bookmarkComic={bookmarkComic}
-            bookmarkCharacter={bookmarkCharacter}
-          />
-        </Route>
-        <Route path="/">
-          <Home
-            setBookmarkCharacter={setBookmarkCharacter}
-            bookmarkCharacter={bookmarkCharacter}
-          />
-        </Route>
-        <Route path="*"></Route>
-      </Switch>
-    </Router>
+    <div className="container border-4 border-dark bg-lightBg px-0">
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/character/:id">
+            <Character
+              setBookmarkComic={setBookmarkComic}
+              bookmarkComic={bookmarkComic}
+            />
+          </Route>
+          <Route path="/comics">
+            <Comics
+              setBookmarkComic={setBookmarkComic}
+              bookmarkComic={bookmarkComic}
+            />
+          </Route>
+          <Route path="/bookmarks">
+            <Bookmarks
+              setBookmarkComic={setBookmarkComic}
+              setBookmarkCharacter={setBookmarkCharacter}
+              bookmarkComic={bookmarkComic}
+              bookmarkCharacter={bookmarkCharacter}
+            />
+          </Route>
+          <Route path="/">
+            <Home
+              setBookmarkCharacter={setBookmarkCharacter}
+              bookmarkCharacter={bookmarkCharacter}
+            />
+          </Route>
+          <Route path="*"></Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

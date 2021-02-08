@@ -54,7 +54,7 @@ const Character = props => {
           )}
           <button
             type="button"
-            className="ml-2"
+            className="z-10 ml-2"
             onClick={() => handleSaveItem(props)}
           >
             {isFavourite ? (
