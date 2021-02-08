@@ -5,7 +5,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Character = props => {
-  const handleSaveItem = item => {
+  const handleSaveItem = (e, item) => {
+    e.preventDefault();
     const bookmark = [...item.bookmarkCharacter];
     let findItem = bookmark.find(o => o._id === item._id);
     if (findItem) {
@@ -44,34 +45,41 @@ const Character = props => {
             alt={props.name}
           />
         )}
-      </Link>
-      <div className="w-full p-2">
-        <div className="flex justify-between items-start">
-          {props.name && (
-            <p className="font-secondary text-dark text-lg leading-6">
-              {props.name}
+        <div className="w-full p-2">
+          <div className="flex justify-between items-start">
+            {props.name && (
+              <p className="font-secondary text-dark text-lg leading-6">
+                {props.name}
+              </p>
+            )}
+            <button
+              type="button"
+              className="z-10 ml-2"
+              onClick={e => handleSaveItem(e, props)}
+            >
+              {isFavourite ? (
+                <FontAwesomeIcon
+                  className="text-3xl text-red"
+                  icon={fasHeart}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  className="text-3xl text-dark"
+                  icon={farHeart}
+                />
+              )}
+            </button>
+          </div>
+          {props.description && (
+            <p className="text-dark font-primary leading-4 mt-2">
+              {props.description.length > 75
+                ? `${props.description.substring(0, 75)}...`
+                : props.description}
+              <button></button>
             </p>
           )}
-          <button
-            type="button"
-            className="z-10 ml-2"
-            onClick={() => handleSaveItem(props)}
-          >
-            {isFavourite ? (
-              <FontAwesomeIcon className="text-3xl text-red" icon={fasHeart} />
-            ) : (
-              <FontAwesomeIcon className="text-3xl text-dark" icon={farHeart} />
-            )}
-          </button>
         </div>
-        {props.description && (
-          <p className="text-dark font-primary leading-4 mt-2">
-            {props.description.length > 75
-              ? `${props.description.substring(0, 75)}...`
-              : props.description}
-          </p>
-        )}
-      </div>
+      </Link>
     </div>
   );
 };
