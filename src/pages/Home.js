@@ -50,6 +50,7 @@ const Home = props => {
             setSearchItem={setSearchItem}
             autocomplete={autocomplete}
             setAutocomplete={setAutocomplete}
+            setPage={setPage}
           >
             {searchItem &&
               data.results.map((character, index) => {

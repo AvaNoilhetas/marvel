@@ -54,6 +54,7 @@ const Comics = props => {
             setSearchItem={setSearchItem}
             autocomplete={autocomplete}
             setAutocomplete={setAutocomplete}
+            setPage={setPage}
           >
             {data.results.map((comic, index) => {
               return (

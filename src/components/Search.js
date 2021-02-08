@@ -14,6 +14,7 @@ const Search = props => {
     } else {
       props.setAutocomplete(true);
     }
+    props.setPage(1);
   };
 
   return (
