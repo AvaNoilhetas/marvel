@@ -6,7 +6,7 @@ const Bookmark = props => {
   return (
     <>
       <section className="container mb-10">
-        <h1 class="text-shadow text-yellow font-secondary text-white text-4xl mb-4">
+        <h1 className="text-shadow text-yellow font-secondary text-white text-4xl mb-4">
           Personnages favoris
         </h1>
         <div className="container overflow-auto grid grid-flow-col-dense justify-start gap-x-4 px-0">
@@ -25,7 +25,7 @@ const Bookmark = props => {
         </div>
       </section>
       <section className="container mb-10">
-        <h1 class="text-shadow text-yellow font-secondary text-white text-4xl mb-4">
+        <h1 className="text-shadow text-yellow font-secondary text-white text-4xl mb-4">
           Comics favoris
         </h1>
         <div className="container overflow-auto grid grid-flow-col-dense justify-start gap-x-4 px-0">

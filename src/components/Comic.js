@@ -56,7 +56,9 @@ const Comic = props => {
         </div>
         {props.description && (
           <p className="text-dark font-primary leading-4 mt-2">
-            {props.description}
+            {props.description.length > 75
+              ? `${props.description.substring(0, 75)}...`
+              : props.description}
           </p>
         )}
       </div>
