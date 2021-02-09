@@ -2,7 +2,7 @@ import Carousel from "../components/Carousel";
 import Character from "../components/Character";
 import Comic from "../components/Comic";
 
-const Bookmark = props => {
+const Bookmarks = props => {
   return (
     <>
       <section className="container my-10 px-4">
@@ -61,4 +61,4 @@ const Bookmark = props => {
   );
 };
 
-export default Bookmark;
+export default Bookmarks;
