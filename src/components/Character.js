@@ -41,7 +41,7 @@ const Character = props => {
       <Link to={`/character/${props._id}`}>
         {props.thumbnail.path && (
           <img
-            className="object-contain bg-white w-full h-60"
+            className="object-cover bg-white w-full h-60"
             src={props.thumbnail.path + "." + props.thumbnail.extension}
             alt={props.name}
           />
