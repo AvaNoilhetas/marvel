@@ -8,7 +8,7 @@ import Character from "./pages/Character";
 import Comics from "./pages/Comics";
 import Home from "./pages/Home";
 
-function App() {
+const App = () => {
   const [bookmarkComic, setBookmarkComic] = useLocalStorage(
     "bookmarkComic",
     ""
@@ -54,6 +54,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
