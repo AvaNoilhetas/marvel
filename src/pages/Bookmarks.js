@@ -3,8 +3,6 @@ import Character from "../components/Character";
 import Comic from "../components/Comic";
 
 const Bookmark = props => {
-  console.log(props.bookmarkComic);
-  console.log(props.bookmarkCharacter);
   return (
     <>
       <section className="container my-10 px-4">
