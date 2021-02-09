@@ -15,7 +15,7 @@ const Description = props => {
 
   return (
     <div>
-      <p className="text-dark font-primary leading-4 mt-2">
+      <div className="text-dark font-primary leading-4 mt-2">
         {description.length > 75 && <>{description.substring(0, 75)}</>}
         {readMore && description.substring(75, description.length)}
         {description.length > 75 && (
@@ -33,7 +33,7 @@ const Description = props => {
           </>
         )}
         {description.length <= 75 && description.substring(0, 75)}
-      </p>
+      </div>
     </div>
   );
 };
