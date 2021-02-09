@@ -31,16 +31,14 @@ const Character = props => {
         <div>
           <section className="container my-10 px-4">
             <div className="sm:flex sm:space-x-4 max-w-5xl">
-              <div className="col-span-1">
-                {data.thumbnail.path && (
-                  <img
-                    className="border-2 border-dark max-h-80 w-auto mx-auto"
-                    src={data.thumbnail.path + "." + data.thumbnail.extension}
-                    alt={data.name}
-                  />
-                )}
-              </div>
-              <div className="col-span-1 sm:mt-0 mt-4">
+              {data.thumbnail.path && (
+                <img
+                  className="border-2 border-dark max-h-80 w-auto sm:mx-0 mx-auto"
+                  src={data.thumbnail.path + "." + data.thumbnail.extension}
+                  alt={data.name}
+                />
+              )}
+              <div className="sm:mt-0 mt-4">
                 <h1 className="text-shadow text-yellow font-secondary text-white text-4xl mb-4">
                   {data.name}
                 </h1>
