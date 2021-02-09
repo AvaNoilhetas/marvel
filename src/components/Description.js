@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import sanitizeHtml from "sanitize-html";
 
 const Description = props => {
   const [readMore, setReadMore] = useState(false);
+  let description = sanitizeHtml(props.description, {
+    allowedTags: [],
+    allowedAttributes: {}
+  });
 
   const handleReadMore = e => {
     e.preventDefault();
@@ -11,11 +16,9 @@ const Description = props => {
   return (
     <div>
       <p className="text-dark font-primary leading-4 mt-2">
-        {props.description.length > 75 && (
-          <>{props.description.substring(0, 75)}</>
-        )}
-        {readMore && props.description.substring(75, props.description.length)}
-        {props.description.length > 75 && (
+        {description.length > 75 && <>{description.substring(0, 75)}</>}
+        {readMore && description.substring(75, description.length)}
+        {description.length > 75 && (
           <>
             {!readMore && <>...</>}
             <div className="text-right">
@@ -29,7 +32,7 @@ const Description = props => {
             </div>
           </>
         )}
-        {props.description.length <= 75 && props.description.substring(0, 75)}
+        {description.length <= 75 && description.substring(0, 75)}
       </p>
     </div>
   );

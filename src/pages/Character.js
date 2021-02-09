@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import sanitizeHtml from "sanitize-html";
 import Carousel from "../components/Carousel";
 import Comic from "./../components/Comic";
 import Loader from "./../components/Loader";
@@ -9,6 +10,11 @@ const Character = props => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
+
+  const description = sanitizeHtml(data.description, {
+    allowedTags: [],
+    allowedAttributes: {}
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +50,7 @@ const Character = props => {
                 </h1>
                 {data.description && (
                   <p className="text-dark font-primary leading-4 mt-2">
-                    {data.description}
+                    {description}
                   </p>
                 )}
               </div>
