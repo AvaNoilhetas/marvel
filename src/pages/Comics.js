@@ -47,8 +47,9 @@ const Comics = props => {
 
   return (
     <>
-      {isLoading && <Loader />}
-      {!isLoading && (
+      {isLoading ? (
+        <Loader />
+      ) : (
         <>
           <Search
             setSearchItem={setSearchItem}

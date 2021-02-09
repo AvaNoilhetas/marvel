@@ -11,11 +11,6 @@ const Character = props => {
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
 
-  const description = sanitizeHtml(data.description, {
-    allowedTags: [],
-    allowedAttributes: {}
-  });
-
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -30,8 +25,9 @@ const Character = props => {
 
   return (
     <>
-      {isLoading && <Loader />}
-      {!isLoading && (
+      {isLoading ? (
+        <Loader />
+      ) : (
         <div>
           <section className="container my-10 px-4">
             <div className="sm:flex sm:space-x-4 max-w-5xl">
@@ -50,7 +46,10 @@ const Character = props => {
                 </h1>
                 {data.description && (
                   <p className="text-dark font-primary leading-4 mt-2">
-                    {description}
+                    {sanitizeHtml(data.description, {
+                      allowedTags: [],
+                      allowedAttributes: {}
+                    })}
                   </p>
                 )}
               </div>
