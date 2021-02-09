@@ -1,5 +1,5 @@
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
-import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as fasHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -39,13 +39,33 @@ const Character = props => {
   return (
     <div className="col-span-1 bg-white border-2 border-dark inline-block h-full">
       <Link to={`/character/${props._id}`}>
-        {props.thumbnail.path && (
-          <img
-            className="object-cover bg-white w-full h-60"
-            src={props.thumbnail.path + "." + props.thumbnail.extension}
-            alt={props.name}
-          />
-        )}
+        <div className="relative">
+          {props.thumbnail.path && (
+            <img
+              className="object-cover bg-white w-full h-60"
+              src={props.thumbnail.path + "." + props.thumbnail.extension}
+              alt={props.name}
+            />
+          )}
+          {props.comics && (
+            <div className="absolute top-4 left-4">
+              <div className="relative text-center">
+                <FontAwesomeIcon
+                  className="text-4xl text-yellow"
+                  icon={faStar}
+                />
+                <div className="absolute top-2.5 mx-auto w-full">
+                  <p className="font-primary text-xs text-dark leading-none">
+                    {props.comics.length}
+                  </p>
+                  <p className="font-primary text-xxs text-dark leading-none">
+                    comic{props.comics.length === 0 ? "" : "s"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
         <div className="w-full p-2">
           <div className="flex justify-between items-start">
             {props.name && (
