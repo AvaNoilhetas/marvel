@@ -19,7 +19,7 @@ function App() {
   );
 
   return (
-    <div className="container border-4 border-dark bg-lightBg px-0">
+    <div className="container border-4 border-dark bg-gray px-0">
       <Router>
         <Header />
         <Switch>

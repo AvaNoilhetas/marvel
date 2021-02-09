@@ -24,7 +24,7 @@ module.exports = {
       red: "#E94822",
       white: "#FFFFFF",
       yellow: "#ffce55",
-      lightBg: "#e8e8e8"
+      gray: "#e8e8e8"
     },
     fontFamily: {
       primary: [
