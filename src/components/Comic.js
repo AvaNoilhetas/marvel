@@ -37,7 +37,7 @@ const Comic = props => {
     <div className="col-span-1 bg-white border-2 border-dark block h-full">
       {props.thumbnail.path && (
         <img
-          className="object-contain bg-dark w-full h-60"
+          className="object-contain bg-white w-full h-60"
           src={props.thumbnail.path + "." + props.thumbnail.extension}
           alt={props.name}
         />
