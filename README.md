@@ -1,4 +1,4 @@
-# MARVEL FRONT END API  🦸‍♀️ 🦸 🦸‍♂️
+# MARVEL FRONT END  🦸‍♀️ 🦸 🦸‍♂️
 
 ![Screenshot](screenshot.png)
 <br/>
