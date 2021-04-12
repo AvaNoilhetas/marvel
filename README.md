@@ -1,8 +1,8 @@
-# MARVEL FRONT END  🦸‍♀️ 🦸 🦸‍♂️
+<h1 align="center">MARVEL FRONT END  🦸‍♀️ 🦸 🦸‍♂️</h1>
 
 ![Screenshot](screenshot.png)
 <br/>
-[See the project](https://naviga-thor.netlify.app/)
+<p align="center"><a href="https://naviga-thor.netlify.app/">See the project</a></p>
 
 ## Installation
 
