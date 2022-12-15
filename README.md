@@ -2,7 +2,7 @@
 
 ![Screenshot](screenshot.png)
 <br/>
-<p align="center"><a href="https://naviga-thor.netlify.app/">See the project</a></p>
+<!--<p align="center"><a href="https://naviga-thor.netlify.app/">See the project</a></p>-->
 
 ## Installation
 
